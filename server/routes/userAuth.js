@@ -60,7 +60,7 @@ router.post("/login", async (req,res) => {
             })
         }
 
-        res.cookie("isUser",true, {httpOnly:true, secure: true, sameSite: 'none'}); // login successful, set cookie
+        res.cookie("isUser", "true" , {httpOnly:true, secure: true, sameSite: "none"}); // login successful, set cookie
         res.status(200).json({
             message: 'User logged in successfully'
         })
@@ -80,7 +80,11 @@ router.post("/login", async (req,res) => {
 // User Logout
 
 router.post("/logout", async(req, res) => {
-    res.clearCookie("isUser");
+    res.clearCookie("isUser", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+    });
     res.status(200).json({ 
         message: "👋 User logged out successfully" 
     });
@@ -93,13 +97,13 @@ const checkUser = (req,res,next) => {
 
     console.log("Received cookies:", req.cookies); // 👀 helps debug
 
-    if (req.cookies.isUser === 'true' || req.cookies.isUser === true || req.cookies.isAdmin === 'true' || req.cookies.isAdmin === true) {
+    if (req.cookies?.isUser || req.cookies?.isAdmin) {
 
-        next();
+        return next();
         
     } else {
 
-        res.status(403).json({
+        res.status(401).json({
             error: "Please login to access this resource"
         })
         

@@ -4,7 +4,7 @@ const pool = require('../db');
 const { checkUser } = require('./userAuth');
 const { checkAdmin } = require('./auth');
 
-router.get('/', checkUser ,async(req, res) => {
+router.get('/', async(req, res) => {
   try {
     
     const result = await pool.query("SELECT * FROM about_me");

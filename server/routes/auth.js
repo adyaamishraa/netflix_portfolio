@@ -16,13 +16,14 @@ router.post('/login', async (req, res) => {
         const {username, password} = req.body;
 
         if( username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD){
-            res.cookie("isAdmin", true, {httpOnly:true, secure: true, sameSite: 'none'});
-            res.status(201).json({
+            res.cookie("isAdmin", "true" , {httpOnly:true, secure: true, sameSite: "none"});
+            
+            return res.status(201).json({
                 message: 'Admin logged in successfully'
             })
         }
         else{
-            res.status(401).json({
+            return res.status(401).json({
                 error: 'Cannot authenticate admin'
             })
         }
@@ -44,7 +45,12 @@ router.post('/login', async (req, res) => {
 // Admin Logout
 
 router.post('/logout', (req, res) => {
-  res.clearCookie("isAdmin");
+  res.clearCookie("isAdmin", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
+
   res.status(200).json({ message: "👋 Admin logged out successfully" });
 });
 
@@ -57,15 +63,15 @@ const checkAdmin = (req,res,next) => {
 
     console.log("Received cookies:", req.cookies); // 👀 helps debug
 
-    if (req.cookies.isAdmin === 'true' || req.cookies.isAdmin === true) {
+    if (req.cookies?.isAdmin) {
 
-        next();
+        return next();
         
     } else {
 
-        res.status(403).json({
+        return res.status(403).json({
             error: 'Access denied. Admins only.'
-        })
+        });
         
     }
 }
