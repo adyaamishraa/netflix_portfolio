@@ -4,7 +4,7 @@ import chatbg from '../assets/chatb.jpg'
 import { useState } from 'react'
 import { useRef } from 'react'
 import { useEffect } from 'react'
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from '../api';
 
 const AdminProf = () => {
 

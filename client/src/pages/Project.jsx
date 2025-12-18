@@ -10,7 +10,7 @@ import slider3 from '../assets/slider3.jpg'
 import slider4 from '../assets/slider4.jpg'
 import slider5 from '../assets/slider5.jpg'
 import { useNavigate } from 'react-router-dom'
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from '../api';
 
 const Project = () => {
 

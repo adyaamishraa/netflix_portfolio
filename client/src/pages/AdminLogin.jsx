@@ -3,7 +3,7 @@ import './AdminLogin.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import glitch from '../assets/glitch2.jpg'
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from '../api';
 
 const AdminLogin = () => {
 

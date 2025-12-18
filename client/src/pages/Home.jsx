@@ -7,6 +7,7 @@ import greenEmo from '../assets/greenEmo.jpg'
 import yellowEmo from '../assets/yellowEmo.jpg'
 import navlogo from '../assets/logo.jpg'
 import './Home.css'
+import { API_URL } from '../api';
 
 const Home = () => {
 

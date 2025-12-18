@@ -4,7 +4,7 @@ import chatbg from '../assets/chatb.jpg'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { data } from 'react-router-dom'
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from '../api';
 
 const KnowYourAdmin = () => {
 

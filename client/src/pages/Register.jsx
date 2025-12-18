@@ -5,7 +5,7 @@ import netLogo from '../assets/intro_logo.jpg'
 import glitch2 from '../assets/glitch2.jpg'
 import movsBg from '../assets/movsBg.jpg'
 import poster from '../assets/poster.jpg'
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from '../api';
 
 const Register = () => {
 
