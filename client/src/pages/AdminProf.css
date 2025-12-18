@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tech-bg-img{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.tech-nav{
+    width: 100vw;
+    height: auto;
+    /* background-color: black; */
+    padding: 0px 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: transparent;
+    background-image: linear-gradient(90deg , #000000 ,#ff001e);
+    background-clip: text;
+    z-index: 1;
+    position: absolute;
+    top: -100;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-nav-heading{
+    font-size: 110px;
+}
+
+.tech-input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+}
+
+.tech-input-box{
+    position: absolute;
+    top: 92%;
+    width: 70vw;
+    height: 50px;
+    background-color: transparent;
+    color: rgb(167, 155, 155);
+    font-size: 20px;
+    padding-left: 20px;
+    border: 1px solid ivory;
+    border-radius: 10px;
+}
+
+.tech-input-box:focus{
+    border: 1px solid ivory;
+    border-radius: 10px;
+}
+
+.tech-input-box::placeholder{
+    color: rgb(120, 114, 114);
+    font-size: 20px;
+}
+
+.tech-send-btn{
+    color: black;
+    background-color: white;
+    padding: 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: 92.7%;
+    right: 16%;
+}
+
+.tech-msg-container{
+    /* background-color: blue; */
+    width: 60vw;
+    position: absolute;
+    bottom: 23%;
+    left: 20%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.tech-user-msg{
+    color: rgb(50, 48, 48);
+    background-color: palegoldenrod;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    border-radius: 16px 16px 2px 16px;
+    margin-bottom: 20px;
+    margin-left: auto;
+}
+
+.tech-bot-msg{
+    color: palegoldenrod;
+    background-color: rgb(50, 48, 48);
+    max-width: fit-content;
+    padding: 10px 20px;
+    border-radius: 16px 16px 16px 2px;
+    margin-bottom: 20px;
+}

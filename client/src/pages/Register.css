@@ -1,0 +1,189 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.intro-container{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#bg-img{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.register-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 600px;   /* Add this */
+    width: fit-content;
+    overflow: hidden; 
+}
+
+#register-bg-img {
+  width: auto;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  object-fit: cover;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.752); /* adjust darkness */
+  z-index: 2;
+  pointer-events: none; /* so it doesn't block clicks */
+}
+
+
+.register-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;       /* same as movsBg */
+  width: 50%;         /* only half the width */
+  z-index: 3;         /* above overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#poster {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 300px;
+    z-index: 3;
+    color: gray;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+.register-btn{
+    background: transparent;
+    border: #B81D24 1px solid;
+    color: gray;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 5px 10px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.register-btn:hover{
+    transform: scale(1.1);
+}
+
+.login-btn{
+    background: transparent;
+    border: #B81D24 1px solid;
+    color: gray;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 5px 10px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.login-btn:hover{
+    transform: scale(1.1);
+}
+
+.form-content{
+  position: absolute;
+  right: 20%;
+  top: 10%;
+  z-index: 3;
+  color: #F5F5F1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap : 20px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.netLogo{
+  height: 100px;
+  width: 100px;
+  /* border-radius: 50%; */
+  margin-bottom: 20px;
+}
+
+.inputs{
+  background: rgb(20, 17, 17);
+  color: #F5F5F1;
+  border: none;
+  height: 40px;
+  padding-left: 10px;
+  width: 270px;
+  font-size: 16px; /* set proper font size */
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inputs::placeholder{
+  font-size: 14px; /* set proper font size */
+  color: #F5F5F1;
+}
+
+.submitBtn{
+  background:linear-gradient(90deg, #e50914, #000000); /* Netflix gradient */;
+  border: none;
+  color: #F5F5F1;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  cursor: pointer;
+  height: 40px;
+  width: 270px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 5px;
+}
+
+.submitBtn:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6); /* Red glow */
+}
