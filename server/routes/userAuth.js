@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 const bcrypt = require("bcrypt");
+const cookieParser = require("cookie-parser");
+
+router.use(cookieParser());
+require("dotenv").config();
 
 // Register a new user
 
@@ -66,7 +70,10 @@ router.post("/login", async (req,res) => {
             })
         }
 
-        res.cookie("isUser", "true" , {httpOnly:true, secure: true, sameSite: "none"}); // login successful, set cookie
+        const isProduction = process.env.NODE_ENV === "production";
+
+        res.cookie("isUser", "true" , {httpOnly:true, secure: isProduction, sameSite: isProduction ? "none" : "lax"}); // login successful, set cookie
+        
         res.status(200).json({
             message: 'User logged in successfully'
         })
