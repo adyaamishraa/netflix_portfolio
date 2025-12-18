@@ -19,7 +19,7 @@ require('dotenv').config();
 const app = express();
 app.use(cors(
   {
-    origin: true,
+    origin: "https://portfolionettflix.netlify.app",
     credentials:true,
     methods: ['GET','POST','PUT','DELETE']
   }

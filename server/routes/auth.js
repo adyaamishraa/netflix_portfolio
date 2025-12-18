@@ -16,7 +16,7 @@ router.post('/login', async (req, res) => {
         const {username, password} = req.body;
 
         if( username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD){
-            res.cookie("isAdmin", true, {httpOnly:true});
+            res.cookie("isAdmin", true, {httpOnly:true, secure: true, sameSite: 'none'});
             res.status(201).json({
                 message: 'Admin logged in successfully'
             })

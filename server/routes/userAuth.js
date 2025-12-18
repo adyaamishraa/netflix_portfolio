@@ -60,7 +60,7 @@ router.post("/login", async (req,res) => {
             })
         }
 
-        res.cookie("isUser",true, {httpOnly:true}); // login successful, set cookie
+        res.cookie("isUser",true, {httpOnly:true, secure: true, sameSite: 'none'}); // login successful, set cookie
         res.status(200).json({
             message: 'User logged in successfully'
         })
@@ -93,7 +93,7 @@ const checkUser = (req,res,next) => {
 
     console.log("Received cookies:", req.cookies); // 👀 helps debug
 
-    if (req.cookies.isUser === 'true' || req.cookies.isUser === true) {
+    if (req.cookies.isUser === 'true' || req.cookies.isUser === true || req.cookies.isAdmin === 'true' || req.cookies.isAdmin === true) {
 
         next();
         
