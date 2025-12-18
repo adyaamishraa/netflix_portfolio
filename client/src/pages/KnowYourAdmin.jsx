@@ -4,6 +4,7 @@ import chatbg from '../assets/chatb.jpg'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { data } from 'react-router-dom'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const KnowYourAdmin = () => {
 
@@ -23,7 +24,7 @@ const KnowYourAdmin = () => {
 
         try {
 
-            const response = await fetch('http://localhost:5000/chatbot', {
+            const response = await fetch(`${API_URL}/chatbot`, {
                 method: 'POST',
                 // credentials: 'include',   // we write this when we use cookies
                 headers: {'Content-Type': 'application/json'},
@@ -78,7 +79,7 @@ const KnowYourAdmin = () => {
         <div className='msg-container'>
             {
                 messages.map((msg,index) => (
-                    <div key={index} className= {`message ${msg.sender == 'user' ? 'user-msg' : 'bot-msg'}`}>
+                    <div key={index} className= {`message ${msg.sender === 'user' ? 'user-msg' : 'bot-msg'}`}>
                         <span>{msg.textBotSent || msg.textHeSent}</span>  {/* Show textBotSent if it exists, otherwise show textHeSent */}
                     </div>
                 ))

@@ -4,6 +4,7 @@ import chatbg from '../assets/chatb.jpg'
 import { useState } from 'react'
 import { useRef } from 'react'
 import { useEffect } from 'react'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AdminProf = () => {
 
@@ -29,7 +30,7 @@ const AdminProf = () => {
 
     try {
 
-      const response = await fetch('http://localhost:5000/techbot', {
+      const response = await fetch(`${API_URL}/techbot`, {
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json'
@@ -85,7 +86,7 @@ const AdminProf = () => {
 
         {
           techMsgs.map((techMsg, index) => (
-            <div key={index} className = {`messages ${techMsg.sender == 'user' ? 'tech-user-msg' : 'tech-bot-msg'}`}>
+            <div key={index} className = {`messages ${techMsg.sender === 'user' ? 'tech-user-msg' : 'tech-bot-msg'}`}>
               <span>{techMsg.textBotSent || techMsg.textHeSent}</span>
             </div>
           ))

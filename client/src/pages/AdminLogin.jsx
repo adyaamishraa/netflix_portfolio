@@ -3,6 +3,7 @@ import './AdminLogin.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import glitch from '../assets/glitch2.jpg'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AdminLogin = () => {
 
@@ -14,7 +15,7 @@ const AdminLogin = () => {
     try {
 
       const fetchProjects = async () => {
-        const response = await fetch("http://localhost:5000/projects", {
+        const response = await fetch(`${API_URL}/projects`, {
           method: 'GET',
           credentials: 'include',
         })
@@ -64,7 +65,7 @@ const AdminLogin = () => {
         alert("Please fill all the fields");
       }
 
-      const response = await fetch("http://localhost:5000/projects", {
+      const response = await fetch(`${API_URL}/projects`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +131,7 @@ const AdminLogin = () => {
   const updateProject = async() => {
     try {
 
-      const response = await fetch(`http://localhost:5000/projects/${editData.id}`, {
+      const response = await fetch(`${API_URL}/projects/${editData.id}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -183,7 +184,7 @@ const AdminLogin = () => {
   const confirmDelete = async () => {
       try {
 
-        const response = await fetch(`http://localhost:5000/projects/${deleteId}`, {
+        const response = await fetch(`${API_URL}/projects/${deleteId}`, {
           method: 'DELETE',
           credentials: 'include',
         })

@@ -10,6 +10,7 @@ import Project from './pages/Project.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
 import KnowYourAdmin from './pages/KnowYourAdmin.jsx';
 import AdminProf from './pages/AdminProf.jsx';
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
 

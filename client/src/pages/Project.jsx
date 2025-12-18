@@ -10,6 +10,7 @@ import slider3 from '../assets/slider3.jpg'
 import slider4 from '../assets/slider4.jpg'
 import slider5 from '../assets/slider5.jpg'
 import { useNavigate } from 'react-router-dom'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Project = () => {
 
@@ -28,7 +29,7 @@ const Project = () => {
         if(loggedInStatus === "true"){
             setIsLoggedin(true);
         }
-    })
+    }, [])
 
     const gotohome = () => {
         navigate('/');
@@ -62,7 +63,7 @@ const Project = () => {
         try {
 
             const fetchProjects = async() => {
-                const response = await fetch("http://localhost:5000/projects", {
+                const response = await fetch(`${API_URL}/projects`, {
                     method: 'GET',
                     credentials: 'include',
                 });

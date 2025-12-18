@@ -5,6 +5,7 @@ import netLogo from '../assets/intro_logo.jpg'
 import glitch2 from '../assets/glitch2.jpg'
 import movsBg from '../assets/movsBg.jpg'
 import poster from '../assets/poster.jpg'
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Register = () => {
 
@@ -59,7 +60,7 @@ const Register = () => {
 
         // 👑 Check if admin is trying to log in
         if (isSignIn && formData.name === "adya" && formData.password === "portad") {
-          url = "http://localhost:5000/auth/login";       // yaha pe admin login ka url hai.
+          url = `${API_URL}/auth/login`;       // yaha pe admin login ka url hai.
           bodyData = { username: formData.name, password: formData.password };   // backend ke req.body me ye recieve hoga.
           isAdminLogin = true;  // set the flag to true
         } 
@@ -69,8 +70,8 @@ const Register = () => {
           
           // 👤 Normal user login/register
           url = isSignIn
-            ? "http://localhost:5000/user/login"
-            : "http://localhost:5000/user/register";
+            ? `${API_URL}/user/login`
+            : `${API_URL}/user/register`;
           bodyData = isSignIn ? { name: formData.name, password: formData.password } : formData;  
           // agar signin nhi hai to pura formdata jayega warna jo signin me inputs hai vo jayega.
         }

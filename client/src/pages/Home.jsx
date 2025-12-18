@@ -60,7 +60,7 @@ const Home = () => {
 
         <div className="my-btn-wrapper">
           <button className='my-btn' onClick={handleSkills}><img src={yellowEmo} alt="ye" /></button>
-          <span className='labels'>Tech USed</span>
+          <span className='labels'>Tech Used</span>
         </div> 
       </div>
     </div>
