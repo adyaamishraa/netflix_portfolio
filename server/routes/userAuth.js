@@ -41,7 +41,13 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req,res) => {
     try {
 
+        console.log("BODY:", req.body); // debug
+
         const {name, password} = req.body;
+
+        if(!name || !password){
+            return res.status(400).json({error: "Name and password required"});
+        }
 
         const result = await pool.query("SELECT * FROM users WHERE name = $1", [name]); // user found in db
 

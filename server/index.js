@@ -1,22 +1,18 @@
+require('dotenv').config();
+
 const express = require('express');
 const cookieParser = require('cookie-parser');
-
-const projectRoute = require('./routes/projects');
-const aboutmeRoute = require('./routes/aboutme');
-const techstackRoute = require('./routes/techstack');
-
-const {router : userAuthRoute, checkUser} = require('./routes/userAuth');  // ye users ko authenticate karega
-const {router: authRoute, checkAdmin} = require('./routes/auth'); // ye admin ko authenticate karega
-
-const chatbotRoute = require('./routes/chatbot');
-const techBotRoute = require('./routes/techbot');
 
 const cors = require('cors');
 
 const pool = require('./db'); //file imported from db.js, isme se console print hoga terminal me
-require('dotenv').config();
 
 const app = express();
+
+app.use(express.json());
+app.use(cookieParser()); // middleware
+
+
 app.use(cors(
   {
     origin: "https://portfolionettflix.netlify.app",
@@ -24,12 +20,19 @@ app.use(cors(
     methods: ['GET','POST','PUT','DELETE']
   }
 ));
-app.use(express.json());
-app.use(cookieParser()); // middleware
 
 
 
 
+const {router : userAuthRoute, checkUser} = require('./routes/userAuth');  // ye users ko authenticate karega
+const {router: authRoute, checkAdmin} = require('./routes/auth'); // ye admin ko authenticate karega
+
+const chatbotRoute = require('./routes/chatbot');
+const techBotRoute = require('./routes/techbot');
+
+const projectRoute = require('./routes/projects');
+const aboutmeRoute = require('./routes/aboutme');
+const techstackRoute = require('./routes/techstack');
 
 
 app.use('/auth', authRoute); // admin ke liye.
